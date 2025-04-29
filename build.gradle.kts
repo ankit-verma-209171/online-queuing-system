@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "2.1.20"
+    application
 }
 
 group = "com.codeitsolo"
@@ -16,6 +17,11 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
+
 kotlin {
     jvmToolchain(21)
+}
+
+application {
+    mainClass.set("com.codeitsolo.MainKt")
 }

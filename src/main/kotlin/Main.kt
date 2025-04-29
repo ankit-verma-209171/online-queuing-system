@@ -21,16 +21,24 @@ fun main() {
         Doctor(averageConsultationTime = 3.minutes),
         Doctor(averageConsultationTime = 4.minutes),
     )
+    println("Available doctors")
+    doctors.forEach { println("Doc (#${it.id.takeLast(6)} - ${it.averageConsultationTime}") }
+    println()
+
     val queue: WaitingQueue = DefaultOnlineWaitingQueue(doctors = doctors)
     val patients = List(10) { Patient() }
     patients.forEach(queue::enqueue)
+    println("Patients queued before John are in total ${patients.size}")
+    patients.forEach { println("Patient (#${it.id.takeLast(6)})") }
+    println()
 
     val john = Patient()
     val johnToken = queue.enqueue(patient = john).getOrElse {
         println("John was not able to enqueue: ${it.message}")
         return@main
     }
+    println("John joined the queue with token ${johnToken.id.takeLast(6)}")
 
     val waitTimeForJohn = queue.estimateWaitingTime(token = johnToken)
-    println(waitTimeForJohn)
+    println("Wait time for John is ${waitTimeForJohn.getOrNull() ?: "unknown"}")
 }
