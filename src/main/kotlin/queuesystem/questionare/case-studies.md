@@ -12,8 +12,10 @@ ahead and each taking 3 minutes on average, the waiting time for John is estimat
 When should the countdown in waiting time, i.e. from 15 minutes, start for John? The moment he
 queues online, or when the doctor starts seeing the first patient in the queue?
 
-> The countdown should start only after doctor starts seeing the patients, since starting count down before will make
-> the system indeterministic as we cannot be certain the variable in the wait time
+**Answer:**
+
+The countdown should start only after doctor starts seeing the patients, since starting count down before will make
+the system indeterministic as we cannot be certain the variable in the wait time
 
 ### Question 2
 
@@ -23,9 +25,11 @@ average consultation time per patient is 3 minutes, what will John’s estimated
 that, at the time John joins the queue, Peter has already gone to the consultation room for the
 following durations?
 
-> If the doctor was not seeing any patient, the wait time would be 15 mins. Now, as the doctor is seeing one of the
-> five patients, the wait time will be < 15 mins, if it's the fifth patient, then the wait time would be less than
-> 3 mins.
+**Answer:**
+
+If the doctor was not seeing any patient, the wait time would be 15 mins. Now, as the doctor is seeing one of the
+five patients, the wait time will be < 15 mins, if it's the fifth patient, then the wait time would be less than
+3 mins.
 
 ## Case Study 2
 
@@ -39,8 +43,10 @@ patient in the queue, with 10 patients ahead of him.
 Assuming that all the patients in the queue, including John, have no specific preferences for the
 doctors they want to consult, what will John’s estimated waiting time be when he joins the queue?
 
-> We'll be allocating the doctor that is available first,
-> using this strategy, we can find John's estimated time
+**Answer:**
+
+We'll be allocating the doctor that is available first,
+using this strategy, we can find John's estimated time
 
 | Time | Doctor A (avg. 3mins) | Doctor B (avg. 4mins) |
 |------|-----------------------|-----------------------|
@@ -54,8 +60,8 @@ doctors they want to consult, what will John’s estimated waiting time be when 
 | 15   | Patient 10            | Patient 9 (ongoing)   |
 | 16   | Patient 10 (ongoing)  | John*                 |
 
-> As we can see, John's wait time will be 16 mins, and he will
-> consult Doctor B
+As we can see, John's wait time will be 16 mins, and he will
+consult Doctor B
 
 ## Question 2
 
@@ -65,8 +71,10 @@ the first patient, Lucas, who has been in the consultation room for the past 2 m
 Assuming that the average consultation times per patient for both doctors remain as 3 minutes and 4
 minutes respectively, what will John’s estimated waiting time be when he joins the queue?
 
-> Now, as Doctor B is already seeing the first patient - Lucas, we can use the same strategy, by adjusting the time
-> already spent in consulting by Doctor B
+**Answer:**
+
+Now, as Doctor B is already seeing the first patient - Lucas, we can use the same strategy, by adjusting the time
+already spent in consulting by Doctor B
 
 | Time | Doctor A (avg. 3mins) | Doctor B (avg. 4mins) |
 |------|-----------------------|-----------------------|
@@ -81,8 +89,8 @@ minutes respectively, what will John’s estimated waiting time be when he joins
 | 14   | Patient 9 (ongoing)   | Patient 10            |
 | 15   | John*                 |                       |
 
-> As we can see, John's wait time will be 15 mins, and he will
-> consult Doctor A
+As we can see, John's wait time will be 15 mins, and he will
+consult Doctor A
 
 ## Bonus
 
@@ -93,5 +101,5 @@ time as output. Your codes should also include the implementation for the Doctor
 assume all the patients in the queue have no preference for the doctors they want to consult and all
 the doctors are available and not seeing any patient initially.
 
-> Please find the example [here](../../Main.kt) for the online queue system and relevant test cases can be found
-> [here](../../../../test/kotlin/com/codeitsolo/queuesystem/queue/DefaultOnlineWaitingQueueTest.kt)
+Please find the example [here](../../Main.kt) for the online queue system and relevant test cases can be found
+[here](../../../../test/kotlin/com/codeitsolo/queuesystem/queue/DefaultOnlineWaitingQueueTest.kt)
